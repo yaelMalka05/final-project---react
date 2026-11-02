@@ -1,70 +1,45 @@
-# Getting Started with Create React App
+# MyMeds – Weekly Medication Schedule
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A React app for managing a weekly medication schedule. Medications are saved per day of the week, and can be added, updated and deleted. Built as a first-year project.
 
-## Available Scripts
+## Features
+- Weekly table showing all 7 days and their medications
+- Add a medication to one day, several days, or all days at once
+- Update the dosage of a medication
+- Delete a medication from a single day, or from all days at once
+- Day details page with a delete confirmation dialog
 
-In the project directory, you can run:
+## Tech Stack
+- React 19
+- Redux (global state)
+- React Router (navigation)
+- Create React App
 
-### `npm start`
+## Getting Started
+```bash
+git clone https://github.com/USERNAME/medication-schedule.git
+cd medication-schedule
+npm install
+npm start
+```
+The app opens at http://localhost:3000.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Screenshots
+![Home](screenshots/home.png)
+![Table](screenshots/table.png)
+![Add medication](screenshots/add.png)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Project Structure
+- `src/component` – React components (pages and UI)
+- `src/redux` – state management (days and medications)
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+(Known issues, for future fixing:
+1. Data is not saved – refreshing the page resets all medications. Could be fixed with localStorage or a server.
+2. `store.jsx` uses the deprecated `createStore`; better to move to `configureStore` from Redux Toolkit. `redux` is also not listed directly in `package.json`.
+3. `RequestSlice.jsx` is not used anywhere, and its slice name is "user".
+4. Unused code: `logo` import in `App.js`, `dispatch` in `DayDetails.jsx`, and large commented-out blocks in `DayDetails.jsx` and `App.js`.
+5. `Home.jsx` contains a leftover "System Benefits" placeholder block.
+6. The same medication can be added to the same day twice, and "delete all" matches by exact name (case-sensitive).
+7. Only the dosage can be updated, not the medication name.
+8. `App.test.js` is the default Create React App test and probably fails.
+9. Both `react-router` and `react-router-dom` are in `package.json`, but only `react-router-dom` is used.)
