@@ -25,9 +25,9 @@ npm start
 The app opens at http://localhost:3000.
 
 ## Screenshots
-![Home](screenshots/home.png)
-![Table](screenshots/table.png)
-![Add medication](screenshots/add.png)
+![Home](screenshots/home.jpeg)
+![Table](screenshots/table.jpeg)
+![Add medication](screenshots/add.jpeg)
 
 ## Project Structure
 - `src/component` – React components (pages and UI)
